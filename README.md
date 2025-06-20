@@ -1,20 +1,20 @@
 # N8n Tutorial: Step-by-Step Guide
 
 ## Flow Order Webhook → Fetch All Posts → Filter by User ID → Return only the Titles:
-1. Webhook1 – receives userId
+### 1. Webhook1 – receives userId
 - Method: POST
 - Path: /filter-posts
 - Respond: Using "Respond to Webhook" Node ✅
 - (Go to Settings tab → Change “Respond” to that)
 
-2. HTTP Request – fetches posts
+### 2. HTTP Request – fetches posts
 - Name: Get All Posts
 - Method: GET
 - URL: https://jsonplaceholder.typicode.com/posts
 - Response Format: JSON
 - Leave everything else default
 
-3. Code – filters the posts using the userId from Webhook1
+### 3. Code – filters the posts using the userId from Webhook1
 ```
 // Get userId from Webhook input (first node)
 const userId = $items("Webhook1")[0].json.body.userId;
